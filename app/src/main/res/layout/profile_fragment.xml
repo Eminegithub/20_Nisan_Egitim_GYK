@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/profile_fragment_imgThumb"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/nav_profile_picture"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/profile_fragment_txtNameSurname"
+        android:layout_below="@id/profile_fragment_imgThumb"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold"
+        android:text="Ahmet Mehmet"/>
+
+    <TextView
+        android:id="@+id/profile_fragment_txtDesc"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:textStyle="normal"
+        android:layout_below="@id/profile_fragment_txtNameSurname"
+        android:layout_centerHorizontal="true"
+        android:text="Gezmeyi ve okumayı seven bir gezgin"/>
+
+    <TextView
+        android:id="@+id/profile_fragment_txtVisitedCities"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:lineSpacingExtra="6dp"
+        android:gravity="center"
+        android:textStyle="normal"
+        android:layout_below="@id/profile_fragment_txtDesc"
+        android:layout_centerHorizontal="true"
+        android:text="Gezdiğim İller: Kayseri, Balıkesir, Kırşehir, Kırıkkale, Bursa, Eskişehir, Ankara, İstanbul, Tekirdağ"/>
+
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/instagram_ic"
+        android:layout_below="@id/profile_fragment_txtVisitedCities"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+</RelativeLayout>

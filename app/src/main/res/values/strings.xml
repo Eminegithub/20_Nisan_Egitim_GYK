@@ -6,4 +6,10 @@
     <string name="login">Giriş Yap</string>
     <string name="register">Kayıt Ol</string>
     <string name="password_verify">Şifre Tekrar</string>
+    <string name="home">Anasayfa</string>
+    <string name="profile">Profil</string>
+    <string name="logout">Çıkış Yap</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
