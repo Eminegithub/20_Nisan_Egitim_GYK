@@ -9,6 +9,10 @@
         android:id="@+id/profile"
         android:title="@string/profile"/>
 
+    <item
+        android:id="@+id/notes"
+        android:title="@string/notes"/>
+
     <group>
         <item
             android:id="@+id/logout"

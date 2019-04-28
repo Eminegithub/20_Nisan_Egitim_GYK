@@ -12,4 +12,10 @@
 
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="notes">Notlarım</string>
+    <string name="create_note">Not Oluştur</string>
+    <string name="your_note">Notunuz</string>
+    <string name="save">Kaydet</string>
+    <string name="create_visited_place">Yeni Gezdiğim Yer</string>
+    <string name="visited_city">Gittiğiniz Şehir</string>
 </resources>

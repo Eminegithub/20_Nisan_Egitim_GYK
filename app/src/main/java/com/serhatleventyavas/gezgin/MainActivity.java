@@ -53,9 +53,14 @@ public class MainActivity extends AppCompatActivity {
                     // Fragment değişecek => Profile fragment gelecek.
 
                     replaceFragment(new ProfileFragment());
+                } else if (menuItem.getItemId() == R.id.notes) {
+                    // Fragment değişecek=> NotesFragment gelecek.
+                    replaceFragment(new NotesFragment());
                 } else if (menuItem.getItemId() == R.id.logout) {
                     // Çıkış Yap
                     FirebaseAuth.getInstance().signOut();
+                    SessionManager manager = new SessionManager(MainActivity.this);
+                    manager.logout();
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);

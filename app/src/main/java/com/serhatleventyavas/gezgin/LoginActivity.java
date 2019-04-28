@@ -26,12 +26,21 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private Button btnRegister;
 
+    private SessionManager mSessionManager = null;
     private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
+        mSessionManager = new SessionManager(this);
+
+        if (!mSessionManager.getEmail().equalsIgnoreCase("") &&
+        !mSessionManager.getPassword().equalsIgnoreCase("")) {
+            login(mSessionManager.getEmail(), mSessionManager.getPassword());
+        }
+
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -50,18 +59,18 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                if (editEmail.getText().toString().equalsIgnoreCase("") ||
+                        editPassword.getText().toString().equalsIgnoreCase("")) {
+                    Toast.makeText(LoginActivity.this, "Boş alanları lütfen doldurunuz.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                login(editEmail.getText().toString(), editPassword.getText().toString());
             }
         });
     }
 
-    private void login() {
-        if (editEmail.getText().toString().equalsIgnoreCase("") ||
-                editPassword.getText().toString().equalsIgnoreCase("")) {
-            Toast.makeText(this, "Boş alanları lütfen doldurunuz.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
+    private void login(final String email, final String password) {
         final AlertDialog progressDialog = new AlertDialog.Builder(LoginActivity.this)
                 .setTitle("İşlem Sürüyor")
                 .setMessage("Lütfen Bekleyiniz.")
@@ -69,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 .show();
 
         Task<AuthResult> task =
-                mFirebaseAuth.signInWithEmailAndPassword(editEmail.getText().toString(), editPassword.getText().toString());
+                mFirebaseAuth.signInWithEmailAndPassword(email, password);
         task.addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -77,6 +86,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (task.isSuccessful()) {
                     // login işlemi başarılıdır.
+                    mSessionManager.setLoginData(email, password);
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
