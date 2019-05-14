@@ -4,24 +4,14 @@ import java.util.ArrayList;
 
 public class CityModel {
 
-    private int id;
     private String cityName;
     private String cityDesc;
-    private int drawableId;
+    private String imageUrl;
 
-    public CityModel(int id, String cityName, String cityDesc, int drawableId) {
-        this.id = id;
+    public CityModel(String cityName, String cityDesc, String imageUrl) {
         this.cityName = cityName;
         this.cityDesc = cityDesc;
-        this.drawableId = drawableId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.imageUrl = imageUrl;
     }
 
     public String getCityName() {
@@ -40,38 +30,11 @@ public class CityModel {
         this.cityDesc = cityDesc;
     }
 
-    public int getDrawableId() {
-        return drawableId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setDrawableId(int drawableId) {
-        this.drawableId = drawableId;
-    }
-
-    public static ArrayList<CityModel> mockData() {
-        ArrayList<CityModel> list = new ArrayList<>();
-        list.add(new CityModel(
-                1,
-                "Kayseri",
-                "Kayseri mantısıdır, sucuğudur felan...",
-                R.drawable.foto1));
-
-        list.add(new CityModel(
-                2,
-                "Mardin",
-                "Güzel şehirdir",
-                R.drawable.foto2));
-
-        list.add(new CityModel(
-                3,
-                "İstanbul",
-                "Seçimlerin 17 gün sürdüğü tarihe geçen tek şehirdir",
-                R.drawable.foto3));
-        list.add(new CityModel(
-                4,
-                "Ankara",
-                "Türkiye Cumhuriyeti'nin başkenti olan şehir angaralının bebeleri ile meşhurdur",
-                R.drawable.foto4));
-        return list;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

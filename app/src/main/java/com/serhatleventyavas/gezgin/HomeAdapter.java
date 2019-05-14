@@ -57,7 +57,7 @@ public class HomeAdapter extends BaseAdapter {
 
         txtName.setText(cityModel.getCityName());
         txtDesc.setText(cityModel.getCityDesc());
-        imgThumb.setImageDrawable(convertView.getResources().getDrawable(cityModel.getDrawableId()));
+        //imgThumb.setImageDrawable(convertView.getResources().getDrawable(cityModel.getDrawableId()));
 
         return convertView;
     }

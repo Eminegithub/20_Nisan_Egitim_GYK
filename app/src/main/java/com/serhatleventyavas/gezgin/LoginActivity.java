@@ -36,13 +36,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mSessionManager = new SessionManager(this);
 
-        if (!mSessionManager.getEmail().equalsIgnoreCase("") &&
-        !mSessionManager.getPassword().equalsIgnoreCase("")) {
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
+        if (!mSessionManager.getEmail().equalsIgnoreCase("") && !mSessionManager.getPassword().equalsIgnoreCase("")) {
             login(mSessionManager.getEmail(), mSessionManager.getPassword());
         }
-
-
-        mFirebaseAuth = FirebaseAuth.getInstance();
 
         editEmail = findViewById(R.id.login_activity_editEmail);
         editPassword = findViewById(R.id.login_activity_editPassword);
